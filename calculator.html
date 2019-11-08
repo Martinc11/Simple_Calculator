@@ -67,7 +67,7 @@
                 <button class="btn btn-light" onclick="typeNumber('0')">0</button>
             </div>
             <div class="col-3">
-                <button class="btn btn-light" onclick="">=</button>
+                <button class="btn btn-light" onclick="typeEqual()">=</button>
             </div>
             <div class="col-3">
                 <button class="btn btn-light" onclick="typeOperator('+')">+</button>
@@ -84,6 +84,7 @@
         var operand1 = '';
         var operand2 = '';
         var isOperand1Empty = true;
+        var operator = '';
 
 
         function typeNumber(number) {
@@ -96,13 +97,26 @@
             document.getElementById('display').innerText = document.getElementById('display').innerText + number;
         }
 
-        function typeOperator(operator) {
-
+        function typeOperator(operator_value) {
+            operator = operator_value;
+            isOperand1Empty = false;
             operand1 = document.getElementById('display').innerText;
-            document.getElementById('display').innerText = document.getElementById('display').innerText + operator;
+            document.getElementById('display').innerText = document.getElementById('display').innerText + operator_value;
         }
 
         function typeEqual() {
+            if (operator == '+') {
+                var result = parseFloat(operand1) + parseFloat(operand2);
+                console.log(result);
+                document.getElementById('display').innerText = result;
+            } else {
+                if (operator == '-') {
+                    var result = parseFloat(operand1) - parseFloat(operand2);
+                    console.log(result);
+                    document.getElementById('display').innerText = result;
+                }
+            }
+
 
         }
     </script>
