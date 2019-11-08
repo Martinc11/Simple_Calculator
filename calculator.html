@@ -105,17 +105,29 @@
         }
 
         function typeEqual() {
-            if (operator == '+') {
-                var result = parseFloat(operand1) + parseFloat(operand2);
-                console.log(result);
-                document.getElementById('display').innerText = result;
-            } else {
-                if (operator == '-') {
-                    var result = parseFloat(operand1) - parseFloat(operand2);
-                    console.log(result);
-                    document.getElementById('display').innerText = result;
-                }
+
+            operand1 = parseFloat(operand1);
+            operand2 = parseFloat(operand2);
+            var result = 0;
+
+            switch (operator) {
+                case '+':
+                    result = operand1 + operand2;
+                    break;
+                case '-':
+                    result = operand1 - operand2;
+                    break;
+                case '*':
+                    result = operand1 * operand2;
+                    break;
+                case '%':
+                    result = operand1 / operand2;
+                    break;
             }
+
+
+            console.log(result);
+            document.getElementById('display').innerText = result;
 
 
         }
